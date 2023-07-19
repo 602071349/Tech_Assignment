@@ -1,0 +1,14 @@
+# two wallet addresses used as input
+1PPkPubRnK2ry9PPVW7HJiukqbSnWzXkbi
+19Kz98riwoFdTPnKe6s2Fg2xAEoa39rGg6
+
+# query for finding two addresses having the most transactions
+SELECT input_address, output_address, COUNT(*) AS number
+    FROM bigquery-public-data.crypto_bitcoin.inputs AS IP, 
+    bigquery-public-data.crypto_bitcoin.outputs AS OP,
+    UNNEST (IP.addresses) as input_address, UNNEST(OP.addresses) as output_address
+    WHERE IP.spent_transaction_hash = OP.transaction_hash 
+    AND IP.spent_output_index = OP.index AND input_address != output_address
+    GROUP BY input_address, output_address
+    ORDER BY number DESC
+    LIMIT 1 
