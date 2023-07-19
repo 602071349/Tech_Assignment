@@ -16,4 +16,13 @@ After activating the python virtual environment, start up the jupyter notebook s
 jupyter notebook
 ```
 
-You can then run the code on the jupyter server. Notice that two sample inputs are provided in inputs.txt file. 
+You can then run the code on the jupyter server. Notice that two sample inputs are provided in inputs.txt file. You can also run tech_code.py directly from command line as following:
+
+```bash
+python3 tech_code.py
+```
+
+To run pytest to test tech_code.py, You can run following command:
+```
+pytest test_tech_code.py
+``` 
