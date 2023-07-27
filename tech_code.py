@@ -41,7 +41,7 @@ def main():
             AND output_address = @user_input_first));
     """
 
-    # add two wall addresses as query parameters before executing the query
+    # add two wallet addresses as query parameters before executing the query
     job_config = bigquery.QueryJobConfig(
         query_parameters=[
             bigquery.ScalarQueryParameter("user_input_first", "STRING", user_input_first),
